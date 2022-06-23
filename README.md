@@ -3,5 +3,5 @@ Manter desativado em caso de perca de jogadores:
 Para desativar bastar ir no arquivo  ClientManager.cs (\server\Stump.Server.BaseServer\Network\ ClientManager.cs) linha 385 e alterar if (attacks > 0 || report > 0) para if (false)  (mesmo desativando isto o sistema de detectar que o ip fez 3 tentativa de ataque em menos de 10 segundos continua ativo)...
 Arquivos criados:
 ClientManager.cs (\server\Stump.Server.BaseServer\Network\ ClientManager.cs)
-BaseClient.cs (emulateur 2.51\server\Stump.Server.BaseServer\Network\ BaseClient.cs)
+BaseClient.cs (\server\Stump.Server.BaseServer\Network\ BaseClient.cs)
 O servidor pode ficar com um mínimo de lag quando estiver sofrendo um ataque, mas provavelmente não irar cair ou gerar filas
