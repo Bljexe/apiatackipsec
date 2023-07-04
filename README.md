@@ -1,7 +1,20 @@
-Essa API faz a verificação se aquele ip que está acessando tem histórico de ataque, ele verifica desse modo : https://api.blocklist.de/api.php?ip=152.250.197.79 caso apareça algum report ou atack ele barra, em alguns poucos casos alguns ips de algumas pessoas estao denunciado msm ela n ter feito nada... a alternativa que eu achei ela usar vpn.
-Manter desativado em caso de perca de jogadores: 
-Para desativar bastar ir no arquivo  ClientManager.cs (\server\Stump.Server.BaseServer\Network\ ClientManager.cs) linha 385 e alterar if (attacks > 0 || report > 0) para if (false)  (mesmo desativando isto o sistema de detectar que o ip fez 3 tentativa de ataque em menos de 10 segundos continua ativo)...
-Arquivos criados:
-ClientManager.cs (\server\Stump.Server.BaseServer\Network\ ClientManager.cs)
-BaseClient.cs (\server\Stump.Server.BaseServer\Network\ BaseClient.cs)
-O servidor pode ficar com um mínimo de lag quando estiver sofrendo um ataque, mas provavelmente não irar cair ou gerar filas
+# API de Segurança Anti-Ataque IP para Servidores Privados de Dofus 2.0+
+
+Essa API verifica se o IP que está acessando possui histórico de ataques. Ela realiza a verificação utilizando o seguinte URL: https://api.blocklist.de/api.php?ip=152.250.197.79. Caso algum relatório ou ataque seja encontrado, o IP é bloqueado. Em alguns casos raros, alguns IPs de determinadas pessoas podem ser denunciados mesmo sem terem feito nada de errado. Uma alternativa que encontrei é utilizar uma VPN.
+
+## Prevenção de Perda de Jogadores
+
+Para desativar o sistema em caso de perda de jogadores, siga os seguintes passos:
+
+1. Acesse o arquivo `ClientManager.cs` localizado em `\server\Stump.Server.BaseServer\Network\ClientManager.cs`.
+2. Na linha 385, altere `if (attacks > 0 || report > 0)` para `if (false)`.
+   > Observação: Mesmo desativando isso, o sistema ainda irá detectar se um IP fez 3 tentativas de ataque em menos de 10 segundos.
+
+## Arquivos Criados
+
+Os seguintes arquivos são criados ou modificados:
+
+- `ClientManager.cs` (`\server\Stump.Server.BaseServer\Network\ClientManager.cs`)
+- `BaseClient.cs` (`\server\Stump.Server.BaseServer\Network\BaseClient.cs`)
+
+O servidor pode apresentar um mínimo de lag durante um ataque, mas é improvável que ele pare de funcionar ou gere filas.
